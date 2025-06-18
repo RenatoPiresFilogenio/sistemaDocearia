@@ -34,3 +34,5 @@ export function isAuthenticated(req: Request, res: Response, next: NextFunction)
     return res.status(401).end();
   }
 }
+
+export default isAuthenticated
