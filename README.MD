@@ -1,27 +1,34 @@
-Sistema de Gestão para Docearias e Pequenos Negócios
+🍬 Sistema de Gestão para Docearias e Pequenos Negócios
 Um sistema pensado para quem adoça o dia a dia com trabalho e dedicação.
 
-Este projeto é um sistema completo e intuitivo voltado para vendedores ambulantes, doceiras artesanais, microempreendedores e pequenas confeitarias, que precisam de uma ferramenta simples, mas poderosa, para gerenciar seus produtos, pedidos e clientes.
+Este projeto é um sistema completo e intuitivo voltado para vendedores ambulantes, doceiras artesanais, microempreendedores e pequenas confeitarias que precisam de uma ferramenta simples, mas poderosa para gerenciar seus produtos, pedidos e clientes.
 
 🎯 Objetivo
-Facilitar o dia a dia de quem trabalha com a produção e venda de doces, oferecendo controle, organização e agilidade sem exigir conhecimentos técnicos ou infraestrutura complexa.
+Facilitar o dia a dia de quem trabalha com a produção e venda de doces, oferecendo controle, organização e agilidade, sem exigir conhecimentos técnicos ou infraestrutura complexa.
 
-🧰 Funcionalidades principais
-Cadastro de Usuários: sistema seguro com autenticação por senha e geração de token JWT para garantir o acesso autorizado.
+🧰 Funcionalidades Principais
+Cadastro de Usuários
+Sistema seguro com autenticação por senha e geração de token JWT para garantir o acesso autorizado.
 
-Gestão de Produtos: cadastre, edite e exclua seus doces e produtos de confeitaria com informações como nome, preço, descrição e ingredientes.
+Gestão de Produtos
+Cadastre, edite e exclua seus doces e produtos de confeitaria com informações como nome, preço, descrição e ingredientes.
 
-Controle de Ingredientes: monitore os insumos utilizados em cada receita, permitindo um controle mais preciso dos custos e da produção.
+Controle de Ingredientes
+Monitore os insumos utilizados em cada receita, permitindo um controle mais preciso dos custos e da produção.
 
-Cálculo automático de custo do produto: o sistema calcula automaticamente o custo de cada produto com base nos ingredientes utilizados, convertendo unidades como gramas (g), mililitros (ml) e unidades (un), garantindo um preço final coerente e ajustado ao custo real de produção.
+💸 Cálculo Automático de Custo do Produto
+O sistema calcula automaticamente o custo de cada produto com base nos ingredientes utilizados, convertendo unidades como gramas (g), mililitros (ml) e unidades (un), garantindo um preço final coerente e ajustado ao custo real de produção.
 
-Perfil do Usuário: visualize todas as informações do vendedor, incluindo histórico de produtos cadastrados e dados pessoais.
+Perfil do Usuário
+Visualize todas as informações do vendedor, incluindo histórico de produtos cadastrados e dados pessoais.
 
-Rotas protegidas com Middleware: segurança implementada via JWT para proteger dados sensíveis.
+Rotas Protegidas com Middleware
+Segurança implementada via JWT para proteger dados sensíveis.
 
-API RESTful: backend estruturado com Express e Prisma, conectado ao PostgreSQL para máxima confiabilidade e performance.
+API RESTful
+Backend estruturado com Express e Prisma, conectado ao PostgreSQL para máxima confiabilidade e performance.
 
-💻 Tecnologias utilizadas
+💻 Tecnologias Utilizadas
 TypeScript + Node.js – base sólida para escalabilidade e tipagem segura.
 
 Express – estrutura de rotas simples e rápida.
@@ -34,20 +41,22 @@ BcryptJS – criptografia de senhas.
 
 CORS + Middleware personalizado – controle total de acesso e segurança.
 
-👥 Para quem é esse sistema?
-Docerias e confeitarias de pequeno porte.
+👥 Público-Alvo
+Este sistema foi feito para:
 
-MEIs (microempreendedores individuais) que vendem na rua, feiras ou porta a porta.
+🍰 Docerias e confeitarias de pequeno porte
 
-Pequenos produtores que fazem doces sob encomenda.
+🚚 MEIs que vendem na rua, feiras ou porta a porta
 
-Negócios familiares que querem digitalizar seu controle.
+📦 Pequenos produtores de doces sob encomenda
 
-📈 Por que usar?
-Centraliza a gestão do negócio em um só lugar.
+🏡 Negócios familiares que querem digitalizar seu controle
 
-Economiza tempo com controles manuais.
+📈 Por Que Usar?
+✅ Centraliza a gestão do negócio em um só lugar
 
-Aumenta a profissionalização e organização do seu negócio.
+⏱️ Economiza tempo com controles manuais
 
-Prepara a base para expansão: mais vendas, mais controle, mais confiança.
+📊 Aumenta a profissionalização e organização
+
+🚀 Prepara a base para expansão: mais vendas, mais controle, mais confiança
