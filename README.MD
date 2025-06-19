@@ -59,4 +59,8 @@ Este sistema foi feito para:
 
 📊 Aumenta a profissionalização e organização
 
+<<<<<<< HEAD
 🚀 Prepara a base para expansão: mais vendas, mais controle, mais confiança
+=======
+🚀 Prepara a base para expansão: mais vendas, mais controle, mais confiança
+>>>>>>> 9a6e26d52da659fb1b3ebd338a5d9b08fab13959
