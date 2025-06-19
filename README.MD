@@ -1,67 +1,62 @@
-# Sistema de Gestão para Docearias e Pequenos Negócios
-
+🍬 Sistema de Gestão para Docearias e Pequenos Negócios
 Um sistema pensado para quem adoça o dia a dia com trabalho e dedicação.
 
-Este projeto é um sistema completo e intuitivo voltado para vendedores ambulantes, doceiras artesanais, microempreendedores e pequenas confeitarias, que precisam de uma ferramenta simples, mas poderosa, para gerenciar seus produtos, pedidos e clientes.
+Este projeto é um sistema completo e intuitivo voltado para vendedores ambulantes, doceiras artesanais, microempreendedores e pequenas confeitarias que precisam de uma ferramenta simples, mas poderosa para gerenciar seus produtos, pedidos e clientes.
 
----
+🎯 Objetivo
+Facilitar o dia a dia de quem trabalha com a produção e venda de doces, oferecendo controle, organização e agilidade, sem exigir conhecimentos técnicos ou infraestrutura complexa.
 
-## 🎯 Objetivo
+🧰 Funcionalidades Principais
+Cadastro de Usuários
+Sistema seguro com autenticação por senha e geração de token JWT para garantir o acesso autorizado.
 
-Facilitar o dia a dia de quem trabalha com a produção e venda de doces, oferecendo controle, organização e agilidade sem exigir conhecimentos técnicos ou infraestrutura complexa.
+Gestão de Produtos
+Cadastre, edite e exclua seus doces e produtos de confeitaria com informações como nome, preço, descrição e ingredientes.
 
----
+Controle de Ingredientes
+Monitore os insumos utilizados em cada receita, permitindo um controle mais preciso dos custos e da produção.
 
-## 🧰 Funcionalidades principais
+💸 Cálculo Automático de Custo do Produto
+O sistema calcula automaticamente o custo de cada produto com base nos ingredientes utilizados, convertendo unidades como gramas (g), mililitros (ml) e unidades (un), garantindo um preço final coerente e ajustado ao custo real de produção.
 
-- **Cadastro de Usuários:** sistema seguro com autenticação por senha e geração de token JWT para garantir o acesso autorizado.
+Perfil do Usuário
+Visualize todas as informações do vendedor, incluindo histórico de produtos cadastrados e dados pessoais.
 
-- **Gestão de Produtos:** cadastre, edite e exclua seus doces e produtos de confeitaria com informações como nome, preço, descrição e ingredientes.
+Rotas Protegidas com Middleware
+Segurança implementada via JWT para proteger dados sensíveis.
 
-- **Controle de Ingredientes:** monitore os insumos utilizados em cada receita, permitindo um controle mais preciso dos custos e da produção.
+API RESTful
+Backend estruturado com Express e Prisma, conectado ao PostgreSQL para máxima confiabilidade e performance.
 
-- **Perfil do Usuário:** visualize todas as informações do vendedor, incluindo histórico de produtos cadastrados e dados pessoais.
+💻 Tecnologias Utilizadas
+TypeScript + Node.js – base sólida para escalabilidade e tipagem segura.
 
-- **Rotas protegidas com Middleware:** segurança implementada via JWT para proteger dados sensíveis.
+Express – estrutura de rotas simples e rápida.
 
-- **API RESTful:** backend estruturado com Express e Prisma, conectado ao PostgreSQL para máxima confiabilidade e performance.
+Prisma ORM – integração com banco de dados PostgreSQL com tipagem automática.
 
----
+JWT (JSON Web Token) – segurança para autenticação.
 
-## 💻 Tecnologias utilizadas
+BcryptJS – criptografia de senhas.
 
-- **TypeScript + Node.js** – base sólida para escalabilidade e tipagem segura.
+CORS + Middleware personalizado – controle total de acesso e segurança.
 
-- **Express** – estrutura de rotas simples e rápida.
+👥 Público-Alvo
+Este sistema foi feito para:
 
-- **Prisma ORM** – integração com banco de dados PostgreSQL com tipagem automática.
+🍰 Docerias e confeitarias de pequeno porte
 
-- **JWT (JSON Web Token)** – segurança para autenticação.
+🚚 MEIs que vendem na rua, feiras ou porta a porta
 
-- **BcryptJS** – criptografia de senhas.
+📦 Pequenos produtores de doces sob encomenda
 
-- **CORS + Middleware personalizado** – controle total de acesso e segurança.
+🏡 Negócios familiares que querem digitalizar seu controle
 
----
+📈 Por Que Usar?
+✅ Centraliza a gestão do negócio em um só lugar
 
-## 👥 Para quem é esse sistema?
+⏱️ Economiza tempo com controles manuais
 
-- Docerias e confeitarias de pequeno porte.
+📊 Aumenta a profissionalização e organização
 
-- MEIs (microempreendedores individuais) que vendem na rua, feiras ou porta a porta.
-
-- Pequenos produtores que fazem doces sob encomenda.
-
-- Negócios familiares que querem digitalizar seu controle.
-
----
-
-## 📈 Por que usar?
-
-- Centraliza a gestão do negócio em um só lugar.
-
-- Economiza tempo com controles manuais.
-
-- Aumenta a profissionalização e organização do seu negócio.
-
-- Prepara a base para expansão: mais vendas, mais controle, mais confiança.
+🚀 Prepara a base para expansão: mais vendas, mais controle, mais confiança

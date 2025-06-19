@@ -11,6 +11,7 @@ interface Prop{
 
 class EditIngredientService {
   async execute({ id, userId, name, unitConversion, totalUnit, totalPrice }: Prop) {
+
     if (!userId || !id) {
       throw new Error("User ID and Ingredient ID are required.");
     }
@@ -25,16 +26,16 @@ class EditIngredientService {
     if (!ingredient) {
       throw new Error("Ingredient not found or you don't have permission.");
     }
-
+    
     const dataToUpdate: any = {};
 
     if (name !== undefined) dataToUpdate.name = name;
     if (unitConversion !== undefined) dataToUpdate.unitConversion = unitConversion;
     if (totalUnit !== undefined) dataToUpdate.totalUnit = totalUnit;
-    if (totalPrice !== undefined) dataToUpdate.totalPrice = totalPrice;
+    if (totalPrice !== undefined ) dataToUpdate.totalPrice = totalPrice;
 
 
-    if (totalPrice !== undefined && totalUnit !== undefined && totalUnit !== 0) {
+    if (totalPrice !== undefined && totalPrice > 0 && totalUnit !== undefined && totalUnit !== 0) {
       dataToUpdate.unitPrice = totalPrice / totalUnit;
     }
 
@@ -45,6 +46,7 @@ class EditIngredientService {
 
     return updatedIngredient;
   }
+
 }
 
 export {EditIngredientService}

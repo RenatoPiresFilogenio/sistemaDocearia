@@ -11,6 +11,7 @@ import { ListIngredientController } from './controller/ingredients/ListIngredien
 import { DeleteIngredientController } from './controller/ingredients/DeleteIngredientController';
 import { EditIngredientController } from './controller/ingredients/EditIngredientController';
 //import products
+import { CreateProductController } from './controller/products/CreateProductController';
 const router = Router();
 
 //routes user
@@ -23,4 +24,5 @@ router.get("/listIngredient", isAuthenticated, new ListIngredientController().ha
 router.delete("/deleteIngredient", isAuthenticated, new DeleteIngredientController().handle)
 router.patch("/updateIngredient", isAuthenticated, new EditIngredientController().handle)
 //routes products
+router.post('/product', isAuthenticated, new CreateProductController().handle)
 export {router}
