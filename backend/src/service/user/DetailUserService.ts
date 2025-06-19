@@ -13,15 +13,24 @@ class DetailUserService{
             const id = userid
             const userDetail = await prismaClient.user.findUnique({
                 where:{
-                    id:userid,
+                    id:id
                 },
                 select: {
                 id: true,
                 name: true,
                 email: true,
-                ingredients:true,
-                products:true,
-        }
+                products: true, 
+                ingredients: {  
+                    select: {
+                    name: true,
+                    unitConversion: true,
+                    totalPrice: true,
+                    totalUnit: true,
+                    unitPrice: true,
+                   
+                    }
+                }
+                }
             })
              return userDetail;
         } catch (error) {

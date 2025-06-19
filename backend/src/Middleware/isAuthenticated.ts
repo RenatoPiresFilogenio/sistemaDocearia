@@ -26,9 +26,8 @@ export function isAuthenticated(req: Request, res: Response, next: NextFunction)
       process.env.JWT_SECRET as string
     ) as IdSub;
 
-    req.userId = sub;  
+    req.userId = sub;
   
-
     return next();
   } catch (error) {
     return res.status(401).end();

@@ -28,6 +28,7 @@ model Ingredient {
   unitConversion String              // ex: "grama", "litro" — unidade base
   unitPrice      Float               // preço por unidade (ex: preço por grama)
   totalUnit      Float               // quantidade total em tipo unidade (ex: 500 grama)
+  totalPrice     Float               // preço bruto total (ex: R$30 para os 500 gramas)
   userId         String
   user           User                @relation(fields: [userId], references: [id])
   createdAt      DateTime            @default(now())
