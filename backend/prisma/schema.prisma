@@ -48,12 +48,13 @@ model Product {
 }
 
 model ProductIngredient {
+  pk_id           Int      @id @default(autoincrement())
   productId    Int
   ingredientId Int
-  quantity     Float              
+  quantity     Float
 
-  product      Product            @relation(fields: [productId], references: [id])
-  ingredient   Ingredient         @relation(fields: [ingredientId], references: [id])
+  product      Product  @relation(fields: [productId], references: [id])
+  ingredient   Ingredient @relation(fields: [ingredientId], references: [id])
 
-  @@id([productId, ingredientId])  
+  @@unique([productId, ingredientId])  
 }

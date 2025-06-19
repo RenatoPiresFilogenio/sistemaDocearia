@@ -12,6 +12,9 @@ import { DeleteIngredientController } from './controller/ingredients/DeleteIngre
 import { EditIngredientController } from './controller/ingredients/EditIngredientController';
 //import products
 import { CreateProductController } from './controller/products/CreateProductController';
+import { ListProductController } from './controller/products/ListProductController';
+import { UpdateProductController } from './controller/products/UpdateProductController';
+import { DeleteProductController } from './controller/products/DeleteProductController';
 const router = Router();
 
 //routes user
@@ -25,4 +28,7 @@ router.delete("/deleteIngredient", isAuthenticated, new DeleteIngredientControll
 router.patch("/updateIngredient", isAuthenticated, new EditIngredientController().handle)
 //routes products
 router.post('/product', isAuthenticated, new CreateProductController().handle)
+router.get('/productlist', isAuthenticated, new ListProductController().handle)
+router.post('/productUpdate',isAuthenticated, new UpdateProductController().handle)
+router.delete('/productDelete',isAuthenticated, new DeleteProductController().handle)
 export {router}
