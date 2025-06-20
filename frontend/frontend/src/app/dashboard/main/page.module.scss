@@ -1,0 +1,48 @@
+@use "@/app/style/variable" as *;
+
+
+.intro {
+  max-width: 640px;
+  margin: 3rem auto;
+  padding: 2rem;
+  background-color: lighten($color-background, 3%);
+  border-left: 6px solid $color-primary;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  text-align: center;
+  animation: fadeIn 0.8s ease-out;
+
+  h2 {
+    font-size: 1.8rem;
+    color: $color-primary;
+    margin-bottom: 1rem;
+    font-weight: 800;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+
+  p {
+    color: darken($color-subtext, 15%);
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+    font-weight: 400;
+
+    &:last-child {
+      font-weight: 600;
+      color: $color-accent;
+    }
+  }
+}
+
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

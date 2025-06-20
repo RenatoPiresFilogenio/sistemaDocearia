@@ -4,11 +4,12 @@ import { ListIngredientService } from "../../service/ingredients/ListIngredientS
 
 class ListIngredientController{
 async handle(req:Request,res:Response){
+    const userId = req.userId!
     const {name} = req.body;
 
     const listingredientservice = new ListIngredientService();
 
-    const ingredient = await listingredientservice.execute({name})
+    const ingredient = await listingredientservice.execute({name,userId})
 
     return res.json(ingredient)
 }

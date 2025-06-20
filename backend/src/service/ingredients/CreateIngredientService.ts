@@ -14,11 +14,7 @@ class CreateIngredientService {
       throw new Error("Information is missing, all of the fields are required.");
     }
 
-    let unitPriceCalculated = totalPrice / totalUnit;
-
-    if (unitPriceCalculated < 0.01) {
-      unitPriceCalculated = Math.ceil(unitPriceCalculated * 100) / 100;
-    }
+    let unitPriceCalculated = Number((totalPrice / totalUnit).toFixed(2));
 
     const ingredient = await prismaClient.ingredient.create({
       data: {

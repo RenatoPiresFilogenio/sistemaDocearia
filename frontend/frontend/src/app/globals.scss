@@ -1,0 +1,11 @@
+@use "./style/variable.scss" as *;
+*{
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: linear-gradient(135deg, #FFF3F8 0%, #F0F8FF 100%);
+}
+
+

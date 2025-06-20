@@ -2,10 +2,11 @@ import prismaClient from "../../../prisma";
 
 interface Prop{
     name: string;
+    userId: string;
 }
 
 class ListIngredientService{
-async execute({name}:Prop){
+async execute({name,userId}:Prop){
 
     if(!name){
         throw new Error("Ingredient Invalid");
@@ -14,7 +15,8 @@ async execute({name}:Prop){
     try {
          const ingredient = await prismaClient.ingredient.findMany({
         where:{
-                name:name
+                name:name,
+                userId: userId
             },
             select: {
                 id:true,
