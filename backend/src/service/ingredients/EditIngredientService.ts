@@ -42,6 +42,14 @@ class EditIngredientService {
     const updatedIngredient = await prismaClient.ingredient.update({
       where: { id },
       data: dataToUpdate,
+      select:{
+        id:true,
+        name:true,
+        unitConversion:true,
+        unitPrice:true,
+        totalUnit:true,
+        totalPrice:true,
+      }
     });
 
     return updatedIngredient;

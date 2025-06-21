@@ -98,3 +98,43 @@
     }
   }
 }
+
+.removeButton {
+  padding: 0.6rem 1.5rem;
+  background-color: #e63946;  // vermelho forte para ação de remover
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+
+  &:hover {
+    background-color: darken(#e63946, 10%);
+  }
+
+  &:active {
+    background-color: lighten(#e63946, 10%);
+  }
+}
+
+.viewButton {
+  padding: 0.6rem 1.5rem;
+  background-color: transparent;
+  color: $color-primary;  // a cor primária do projeto
+  border: 2px solid $color-primary;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+
+  &:hover {
+    background-color: $color-primary;
+    color: white;
+  }
+
+  &:active {
+    transform: scale(0.95);
+  }
+}
+

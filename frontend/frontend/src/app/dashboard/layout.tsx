@@ -1,5 +1,5 @@
 import Header from "@/app/dashboard/components/header/header";
-
+import {IngredientProvider} from "@/providers/ingredient"
 export default function DashboardLayout({
   children,
 }: {
@@ -8,7 +8,9 @@ export default function DashboardLayout({
   return (
     <>
       <Header />
+      <IngredientProvider>
       <main>{children}</main>
+      </IngredientProvider>
     </>
   );
 }
