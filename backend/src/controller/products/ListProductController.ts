@@ -1,13 +1,13 @@
 import { Request,Response } from "express";
-import { UpdateProductService } from "../../service/products/UpdateProductController";
+import { ListProductService } from "../../service/products/ListProductService";
 class ListProductController{
     async handle(req:Request,res:Response){
         const userId = req.userId!
-        const {id, name} = req.body
+       
 
-        const updateproductservice = new UpdateProductService();
+        const listproductservice = new ListProductService();
 
-        const product = await updateproductservice.execute({id,userId,name})
+        const product = await listproductservice.execute({userId})
         
         return res.json(product)
     }

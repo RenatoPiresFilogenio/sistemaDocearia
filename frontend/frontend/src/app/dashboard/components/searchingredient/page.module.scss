@@ -101,7 +101,7 @@
 
 .removeButton {
   padding: 0.6rem 1.5rem;
-  background-color: #e63946;  // vermelho forte para ação de remover
+  background-color: #e63946;
   color: white;
   border: none;
   border-radius: 10px;
@@ -110,18 +110,17 @@
   transition: background-color 0.2s ease;
 
   &:hover {
-    background-color: darken(#e63946, 10%);
+    background-color: color.adjust(#e63946, $lightness: -10%);
   }
 
   &:active {
-    background-color: lighten(#e63946, 10%);
+    background-color: color.adjust(#e63946, $lightness: 10%);
   }
 }
-
 .viewButton {
   padding: 0.6rem 1.5rem;
   background-color: transparent;
-  color: $color-primary;  // a cor primária do projeto
+  color: $color-primary;  
   border: 2px solid $color-primary;
   border-radius: 10px;
   font-weight: 600;

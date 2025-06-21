@@ -45,26 +45,26 @@ export default function Form({ ingredients }: Props) {
                 <ul className={style.ingredient_list}>
                         {[...ingredients]
                 .sort((a, b) => a.name.localeCompare(b.name))
-                .map((item, index) => (
+                .map((ingredient, index) => (
                     <li key={index} className={style.ingredient_card}>
                     <div className={style.ingredient_header}>
-                        <h3>{item.name}</h3>
+                        <h3>{ingredient.name}</h3>
                     </div>
                     <div className={style.ingredient_info}>
                         <p>
-                        <strong>Preço unitário:</strong> R$ {item.unitPrice.toFixed(2)} por {item.unitConversion}
+                        <strong>Preço unitário:</strong> R$ {ingredient.unitPrice.toFixed(2)} por {ingredient.unitConversion}
                         </p>
                         <p>
-                        <strong>Estoque total:</strong> {item.totalUnit} {item.unitConversion}
+                        <strong>Estoque total:</strong> {ingredient.totalUnit} {ingredient.unitConversion}
                         </p>
                         <p>
-                        <strong>Valor total:</strong> R$ {item.totalPrice.toFixed(2)}
+                        <strong>Valor total:</strong> R$ {ingredient.totalPrice.toFixed(2)}
                         </p>
-                        <button className={style.removeButton} onClick={() => RemoveIngredient(item.id)}>
+                        <button className={style.removeButton} onClick={() => RemoveIngredient(ingredient.id)}>
                           Remover
                         </button>
-                        <button className={style.viewButton} onClick={() => handleDetailIngredient(item.id)}>
-                          Visualizar
+                        <button className={style.viewButton} onClick={() => handleDetailIngredient(ingredient.id)}>
+                          Editar
                         </button>
                     </div>
                     </li>

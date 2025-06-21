@@ -8,7 +8,7 @@ export default function header(){
         <h1>CandyTrack</h1>
         
         <Link href={"/dashboard/ingredients"}>Ingredientes</Link>
-         <Link href={"/dashboard/produtos"}>Produtos</Link>
+         <Link href={"/dashboard/products"}>Produtos</Link>
          <Link href={"/dashboard/perfil"}>Perfil</Link>
          <Link href={"/dashboard/main"}>Menu</Link>
          

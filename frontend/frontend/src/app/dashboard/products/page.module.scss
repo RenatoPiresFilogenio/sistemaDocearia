@@ -1,0 +1,133 @@
+@use "sass:color";
+@use "@/app/style/variable" as *;
+
+.main_container {
+  padding: 2rem;
+  background-color: color.adjust($color-background, $lightness: 4%);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.section_container {
+  background-color: white;
+  padding: 2.5rem 3rem;
+  border-radius: 16px;
+  box-shadow: 0 6px 18px rgba($color-primary, 0.15);
+  width: 100%;
+  max-width: 720px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  letter-spacing: 0.4px;
+
+  h1 {
+    font-size: 2.4rem;
+    font-weight: 700;
+    color: $color-primary;
+    margin-bottom: 2rem;
+    text-align: center;
+    letter-spacing: 1.2px;
+    line-height: 1.4;
+  }
+
+  form {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+
+  li {
+    list-style: none;
+    background-color: white;
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba($color-primary, 0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    font-size: 1rem;
+    letter-spacing: 0.5px;
+    line-height: 1.6;
+
+    .ingredient-name {
+      font-weight: 700;
+      color: $color-primary;
+      font-size: 1.1rem;
+    }
+
+    .ingredient-price {
+      font-weight: 500;
+      color: color.adjust($color-text, $lightness: -10%);
+    }
+
+    .quantity-label {
+      margin-top: 0.4rem;
+      font-weight: 600;
+      color: $color-text;
+    }
+
+    input[type="number"] {
+      margin-top: 0.3rem;
+      width: 120px;
+      padding: 0.7rem;
+      border: 2px solid color.adjust($color-primary, $lightness: 25%);
+      border-radius: 8px;
+      font-size: 1rem;
+      color: $color-text;
+
+      &::placeholder {
+       color: color.adjust($color-text, $lightness: 20%);
+        font-style: italic;
+      }
+
+      &:focus {
+        border-color: $color-primary;
+        outline: none;
+        box-shadow: 0 0 6px rgba($color-primary, 0.3);
+      }
+    }
+  }
+}
+
+
+    input[type="text"] {
+      padding: 1rem 1.2rem;
+      font-size: 1rem;
+      border-radius: 10px;
+      border: 2px solid color.adjust($color-primary, $lightness: 30%);
+      letter-spacing: 0.5px;
+      font-family: inherit;
+      transition: border-color 0.25s ease;
+
+      &:focus {
+        border-color: $color-primary;
+        box-shadow: 0 0 6px color.adjust($color-primary, $lightness: -20%);
+        outline: none;
+      }
+    }
+
+    button {
+      align-self: center;
+      padding: 0.95rem 2.4rem;
+      background-color: $color-primary;
+      color: white;
+      border: none;
+      border-radius: 12px;
+      font-weight: 700;
+      font-size: 1.1rem;
+      cursor: pointer;
+      letter-spacing: 1px;
+      transition: background-color 0.3s ease, transform 0.1s ease;
+      box-shadow: 0 6px 14px rgba($color-primary, 0.25);
+
+      &:hover {
+        background-color: color.adjust($color-primary, $lightness: -15%);
+        transform: translateY(-1px);
+      }
+
+      &:active {
+        transform: translateY(0);
+      }
+    }
+  }
+

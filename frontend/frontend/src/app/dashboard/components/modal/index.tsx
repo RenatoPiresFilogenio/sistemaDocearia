@@ -12,13 +12,13 @@ export function IngredientModal() {
   const { onRequestClose, ingredient } = useContext(IngredientContext);
   const router = useRouter();
 
-  // Estado local para editar
+  
   const [name, setName] = useState("");
   const [unitConversion, setUnitConversion] = useState("");
   const [totalUnit, setTotalUnit] = useState("");
   const [totalPrice, setTotalPrice] = useState("");
 
-  // Quando o ingredient mudar, atualiza os campos
+ 
   useEffect(() => {
     if (ingredient.length > 0) {
       const ingr = ingredient[0];
@@ -56,7 +56,7 @@ export function IngredientModal() {
       
     } catch (error) {
       console.error("Erro ao atualizar ingrediente:", error);
-      // Aqui pode adicionar feedback visual para o usuário
+      
     }
   }
 
