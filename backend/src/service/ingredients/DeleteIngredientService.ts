@@ -22,9 +22,16 @@ class DeleteIngredientService{
       },
     });
 
+
     if (!ingredient) {
       throw new Error("Ingredient not found or you don't have permission.");
     }
+
+    await prismaClient.productIngredient.deleteMany({
+      where:{
+        ingredientId: ingredient.id
+      }
+    })
 
     await prismaClient.ingredient.delete({
       where: {

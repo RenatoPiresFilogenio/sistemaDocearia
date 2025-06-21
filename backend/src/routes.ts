@@ -24,7 +24,7 @@ router.post('/login', new AuthUserController().handle)
 router.get('/userInfo', isAuthenticated, new DetailUserController().handle)
 //routes ingredients
 router.post('/ingredient', isAuthenticated, new CreateIngredientController().handle)
-router.post("/listIngredient", isAuthenticated, new ListIngredientController().handle)
+router.get("/listIngredient", isAuthenticated, new ListIngredientController().handle)
 router.delete("/deleteIngredient", isAuthenticated, new DeleteIngredientController().handle)
 router.patch("/updateIngredient", isAuthenticated, new EditIngredientController().handle)
 //routes products

@@ -1,8 +1,8 @@
 @use "@/app/style/variable" as *;
-
+@use "sass:color";
 
 .form {
-  background-color: lighten($color-background, 5%);
+  background-color: color.adjust($color-background, $lightness: 5%);
   padding: 2rem;
   border-radius: 8px;
   max-width: 360px;
@@ -23,7 +23,7 @@
   }
 
   h3 {
-    color: darken($color-accent, 50%);
+    color: color.adjust($color-accent, $lightness: -50%);
     text-align: center;
     margin-bottom: 1.5rem;
     font-weight: 500;
@@ -33,22 +33,22 @@
     width: 100%;
     padding: 10px;
     margin-bottom: 1.25rem;
-    border: 2px solid darken($color-accent, 10%);
+    border: 2px solid color.adjust($color-accent, $lightness: -10%);
     border-radius: 6px;
     font-size: 1rem;
-    color: darken($color-text, 10%);
+    color: color.adjust($color-text, $lightness: -10%);
     background-color: white;
     transition: border-color 0.3s ease;
 
     &::placeholder {
-      color: darken($color-subtext, 15%);
+      color: color.adjust($color-subtext, $lightness: -15%);
       opacity: 1;
     }
 
     &:focus {
       outline: none;
-      border-color: darken($color-primary, 10%);
-      box-shadow: 0 0 5px darken($color-primary, 10%);
+      border-color: color.adjust($color-primary, $lightness: -10%);
+      box-shadow: 0 0 5px color.adjust($color-primary, $lightness: -10%);
     }
   }
 
@@ -65,7 +65,7 @@
     transition: background-color 0.3s ease;
 
     &:hover {
-      background-color: darken($color-primary, 15%);
+      background-color: color.adjust($color-primary, $lightness: -15%);
     }
   }
 }

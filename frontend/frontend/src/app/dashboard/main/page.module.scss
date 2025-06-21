@@ -1,11 +1,11 @@
 @use "@/app/style/variable" as *;
-
+@use "sass:color";
 
 .intro {
   max-width: 640px;
   margin: 3rem auto;
   padding: 2rem;
-  background-color: lighten($color-background, 3%);
+  background-color: color.adjust($color-background, $lightness: 3%);
   border-left: 6px solid $color-primary;
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
@@ -21,7 +21,7 @@
   }
 
   p {
-    color: darken($color-subtext, 15%);
+    color: color.adjust($color-subtext, $lightness: -15%);
     font-size: 1rem;
     line-height: 1.6;
     margin-bottom: 1rem;
@@ -33,7 +33,6 @@
     }
   }
 }
-
 
 @keyframes fadeIn {
   from {
