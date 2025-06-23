@@ -15,7 +15,7 @@ import { CreateProductController } from './controller/products/CreateProductCont
 import { ListProductController } from './controller/products/ListProductController';
 import { UpdateProductController } from './controller/products/UpdateProductController';
 import { DeleteProductController } from './controller/products/DeleteProductController';
-import { DeleteIngredientProductController } from './controller/products/DeleteIngredientProductController';
+import { EditProductController } from './controller/products/EditProductController';
 const router = Router();
 
 //routes user
@@ -32,5 +32,5 @@ router.post('/product', isAuthenticated, new CreateProductController().handle)
 router.get('/productlist', isAuthenticated, new ListProductController().handle)
 router.post('/productUpdate',isAuthenticated, new UpdateProductController().handle)
 router.delete('/productDelete',isAuthenticated, new DeleteProductController().handle)
-router.delete('/productDeleteIngredient',isAuthenticated, new DeleteIngredientProductController().handle)
+router.patch("/productUpdate", isAuthenticated, new EditProductController().handle)
 export {router}

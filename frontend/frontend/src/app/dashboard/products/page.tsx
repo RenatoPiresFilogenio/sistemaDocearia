@@ -67,14 +67,15 @@ export default async function CreateProduct() {
           <ul>
             {ingredients.map((ingredient: any) => (
               <li key={ingredient.id}>
-                <div className="ingredient-name">Nome: {ingredient.name}</div>
-                <div className="ingredient-price">
-                  Preço: R${ingredient.unitPrice} por {ingredient.unitConversion}
-                </div>
-                <div className="quantity-label">
-                  Quantidade para adicionar ao produto em unidade de {ingredient.unitConversion}:
-                </div>
+              <div className="ingredient-name">Nome: {ingredient.name}</div>
+              <div className="ingredient-price">
+                Preço: R${ingredient.unitPrice} por {ingredient.unitConversion}
+              </div>
+              <div className="quantity-label">
+                Quantidade para adicionar ao produto em unidade de {ingredient.unitConversion}:
+              </div>
 
+              <div className="checkbox-container">
                 <input
                   type="checkbox"
                   id={`select-${ingredient.id}`}
@@ -82,14 +83,15 @@ export default async function CreateProduct() {
                   value={ingredient.id}
                 />
                 <label htmlFor={`select-${ingredient.id}`}>Selecionar</label>
+              </div>
 
-                <input
-                  type="number"
-                  placeholder="Ex: 10"
-                  name={`quantity-${ingredient.id}`}
-                  min={0}
-                />
-              </li>
+              <input
+                type="number"
+                placeholder="Ex: 10"
+                name={`quantity-${ingredient.id}`}
+                min={0}
+              />
+            </li>
             ))}
           </ul>
         </form>

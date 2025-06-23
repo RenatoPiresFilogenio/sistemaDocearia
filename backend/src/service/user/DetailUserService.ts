@@ -16,10 +16,14 @@ class DetailUserService{
                     id:id
                 },
                 select: {
-                id: true,
                 name: true,
-                email: true,
-                products: true, 
+                email:true,
+                products:{
+                    select:{
+                        name:true,
+                        price:true,
+                    }
+                },
                 ingredients: {  
                     select: {
                     name: true,

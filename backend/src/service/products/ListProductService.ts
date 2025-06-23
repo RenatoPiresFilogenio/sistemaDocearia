@@ -16,6 +16,7 @@ async execute({userId}:Prop){
             userId: userId
         },
         select: {
+            id:true,
             name: true,
             price: true,
         }
