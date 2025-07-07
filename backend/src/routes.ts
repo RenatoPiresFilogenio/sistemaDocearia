@@ -2,7 +2,7 @@ import {Router} from 'express'
 //middleware
 import isAuthenticated from './Middleware/isAuthenticated';
 //import user
-import { CreateUserController } from './controller/user/CreateUserController';
+
 import { AuthUserController } from './controller/user/AuthUserController';
 import { DetailUserController } from './controller/user/DetailUserController';
 //import ingredients
@@ -19,7 +19,6 @@ import { EditProductController } from './controller/products/EditProductControll
 const router = Router();
 
 //routes user
-router.post('/users', new CreateUserController().handle);
 router.post('/login', new AuthUserController().handle)
 router.get('/userInfo', isAuthenticated, new DetailUserController().handle)
 //routes ingredients
