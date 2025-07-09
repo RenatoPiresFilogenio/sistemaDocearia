@@ -40,7 +40,7 @@ export default function Signup(){
         }
     return(
        <div className={style.wrapper}>
-            <form className={style.form}>
+            <form className={style.form} action={handleRegister}>
                 <h1><strong>Crie sua conta</strong></h1>
                 <h3>É rápido e fácil</h3>
 
