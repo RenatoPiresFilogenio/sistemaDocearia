@@ -6,7 +6,9 @@ import { router } from "./routes";
 const app = express();
 
 app.use(express.json());
-app.use(cors());
+app.use(cors({
+   origin: "https://sistema-docearia-81an.vercel.app"
+}));
 app.use(router);
 
 app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
