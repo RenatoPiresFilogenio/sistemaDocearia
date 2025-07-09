@@ -2,6 +2,7 @@ import styles from "./page.module.scss";
 import { cookies } from "next/headers";
 import { api } from "./services/api";
 import { redirect } from "next/navigation";
+import Link from "next/link";
 export default function Home() {
   async function HandleLogin(formData:FormData){
       "use server"
@@ -44,6 +45,8 @@ export default function Home() {
       <br />
 
         <button type="submit">Login</button>
+        <br />
+        <Link href={"/signup"}><button>Criar Conta</button></Link>
       </form>
     </div>
   );
