@@ -11,7 +11,7 @@ export default function header(){
          <Link href={"/dashboard/products"}>Produtos</Link>
          <Link href={"/dashboard/perfil"}>Perfil</Link>
          <Link href={"/dashboard/main"}>Menu</Link>
-         
+         <Link href={"/"}>Deslogar</Link>
         </main>
     );
 }
