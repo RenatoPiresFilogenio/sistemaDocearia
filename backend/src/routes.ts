@@ -19,7 +19,7 @@ import { EditProductController } from './controller/products/EditProductControll
 const router = Router();
 
 //routes user
-router.post('/users', new AuthUserController().handle)
+router.post('/users', new CreateUserController().handle)
 router.post('/login', new AuthUserController().handle)
 router.get('/userInfo', isAuthenticated, new DetailUserController().handle)
 //routes ingredients
