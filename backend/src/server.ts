@@ -11,6 +11,22 @@ app.use(cors({
 }));
 app.use(router);
 
+app.use((req, res, next) => {
+  res.setHeader('Content-Security-Policy', `
+  default-src 'self';
+  script-src 'self';
+  style-src 'self';
+  img-src 'self' data:;
+  connect-src 'self' https://sistema-docearia-sno1.vercel.app;
+  font-src 'self';
+  frame-ancestors 'none';
+  object-src 'none';
+  base-uri 'self';
+`.replace(/\n/g, ''));
+  next();
+});
+
+
 app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
   if (err instanceof Error) {
     return res.status(400).json({

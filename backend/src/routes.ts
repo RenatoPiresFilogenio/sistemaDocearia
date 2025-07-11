@@ -18,6 +18,7 @@ import { DeleteProductController } from './controller/products/DeleteProductCont
 import { EditProductController } from './controller/products/EditProductController';
 const router = Router();
 
+
 //routes user
 router.post('/users', new CreateUserController().handle)
 router.post('/login', new AuthUserController().handle)
