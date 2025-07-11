@@ -1,4 +1,5 @@
 import prismaClient from "../../../prisma";
+import xss from "xss";
 
 interface Prop {
   userId: string;
@@ -12,24 +13,16 @@ class UpdateProductService {
       throw new Error("Product ID or User ID is missing");
     }
 
-    
-    if (name) {
-      await prismaClient.product.update({
-        where: { id },
-        data: { name }
-      });
-    }
-
-    
+    // Busca o produto e valida permissão primeiro
     const productWithIngredients = await prismaClient.product.findUnique({
       where: { id },
       include: {
         ingredients: {
           include: {
-            ingredient: true
-          }
-        }
-      }
+            ingredient: true,
+          },
+        },
+      },
     });
 
     if (!productWithIngredients || productWithIngredients.userId !== userId) {
@@ -37,20 +30,23 @@ class UpdateProductService {
     }
 
     
-    let RefreshPrice = 0;
-
-    for (const item of productWithIngredients.ingredients) {
-      const unitPrice = item.ingredient.unitPrice ?? item.ingredient.unitPrice; 
-      const quantity = item.quantity;
-      RefreshPrice += unitPrice * quantity;
-    }
+    const safeName = name ? xss(name) : undefined;
 
     
+    let refreshPrice = 0;
+    for (const item of productWithIngredients.ingredients) {
+      const unitPrice = item.ingredient.unitPrice ?? 0;
+      const quantity = item.quantity;
+      refreshPrice += unitPrice * quantity;
+    }
+
+   
     const updatedProduct = await prismaClient.product.update({
       where: { id },
       data: {
-        price: RefreshPrice
-      }
+        ...(safeName !== undefined && { name: safeName }),
+        price: refreshPrice,
+      },
     });
 
     return updatedProduct;

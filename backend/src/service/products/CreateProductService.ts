@@ -1,4 +1,5 @@
 import prismaClient from "../../../prisma";
+import xss from "xss";
 
 interface IngredientWithQuantity {
   id: number;
@@ -17,10 +18,10 @@ class CreateProductService {
       throw new Error("Please provide all required data.");
     }
 
-    
+    const safeName = xss(name);
+
     const ingredientIds = ingredients.map(item => item.id);
 
- 
     const foundIngredients = await prismaClient.ingredient.findMany({
       where: {
         id: { in: ingredientIds }
@@ -39,19 +40,16 @@ class CreateProductService {
       }
       totalPrice += ing.unitPrice * item.quantity;
 
-       if(totalPrice <= 0 ){
-        throw new Error(`Price Need be positive`);
+      if (totalPrice <= 0) {
+        throw new Error(`Price needs to be positive`);
       }
-
     }
 
-    
     const product = await prismaClient.product.create({
       data: {
-        name,
+        name: safeName,
         price: totalPrice,
         userId: UserId,
-        
         ingredients: {
           create: ingredients.map(item => ({
             ingredientId: item.id,
@@ -65,10 +63,7 @@ class CreateProductService {
     });
 
     return product;
-    
   }
-
-  
 }
 
 export { CreateProductService };

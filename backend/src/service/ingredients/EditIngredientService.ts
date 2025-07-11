@@ -1,4 +1,5 @@
 import prismaClient from "../../../prisma";
+import xss from "xss";
 
 interface Prop{
     userId: string;
@@ -29,14 +30,30 @@ class EditIngredientService {
     
     const dataToUpdate: any = {};
 
-    if (name !== undefined) dataToUpdate.name = name;
-    if (unitConversion !== undefined) dataToUpdate.unitConversion = unitConversion;
-    if (totalUnit !== undefined) dataToUpdate.totalUnit = totalUnit;
-    if (totalPrice !== undefined ) dataToUpdate.totalPrice = totalPrice;
+    if (name !== undefined) dataToUpdate.name = xss(name);
+    if (unitConversion !== undefined) dataToUpdate.unitConversion = xss(unitConversion);
+    
+    if (totalUnit !== undefined) {
+      if (totalUnit <= 0) {
+        throw new Error("totalUnit must be greater than zero");
+      }
+      dataToUpdate.totalUnit = totalUnit;
+    }
+    
+    if (totalPrice !== undefined) {
+      if (totalPrice < 0) {
+        throw new Error("totalPrice cannot be negative");
+      }
+      dataToUpdate.totalPrice = totalPrice;
+    }
 
-
-    if (totalPrice !== undefined && totalPrice > 0 && totalUnit !== undefined && totalUnit !== 0) {
-      dataToUpdate.unitPrice = totalPrice / totalUnit;
+    if (
+      totalPrice !== undefined &&
+      totalPrice >= 0 &&
+      totalUnit !== undefined &&
+      totalUnit > 0
+    ) {
+      dataToUpdate.unitPrice = Number((totalPrice / totalUnit).toFixed(2));
     }
 
     const updatedIngredient = await prismaClient.ingredient.update({
@@ -57,4 +74,4 @@ class EditIngredientService {
 
 }
 
-export {EditIngredientService}
+export {EditIngredientService};

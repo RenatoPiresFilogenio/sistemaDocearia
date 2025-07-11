@@ -1,4 +1,5 @@
 import prismaClient from "../../../prisma";
+import xss from "xss";
 
 interface Prop{
     userId: string;
@@ -14,47 +15,50 @@ class EditProductService {
       throw new Error("User ID and Product ID are required.");
     }
 
-    const ingredient = await prismaClient.product.findFirst({
+    const product = await prismaClient.product.findFirst({
       where: {
         id,
         userId,
       },
     });
 
-    if (!ingredient) {
+    if (!product) {
       throw new Error("Product not found or you don't have permission.");
     }
     
     const dataToUpdate: any = {};
 
-    if (name !== undefined) dataToUpdate.name = name;
-    if (price !== undefined) dataToUpdate.price = price;
-
-    if (price! < 0) {
-     throw new Error("Price cant be below 0")
+    if (name !== undefined) {
+      dataToUpdate.name = xss(name); // sanitiza aqui
+    }
+    if (price !== undefined) {
+      if (price < 0) {
+        throw new Error("Price can't be below 0");
+      }
+      dataToUpdate.price = price;
     }
 
    const updateProduct = await prismaClient.product.update({
-  where: { id },
-  data: dataToUpdate,
-  select: {
-    id: true,
-    name: true,
-    price: true,
-    ingredients: {  
+      where: { id },
+      data: dataToUpdate,
       select: {
-        ingredient: {  
+        id: true,
+        name: true,
+        price: true,
+        ingredients: {  
           select: {
-            name: true 
+            ingredient: {  
+              select: {
+                name: true 
+              }
+            }
           }
         }
       }
-    }
-  }
-});
+    });
     return updateProduct;
   }
 
 }
 
-export {EditProductService}
+export { EditProductService };

@@ -1,4 +1,5 @@
 import prismaClient from "../../../prisma";
+import xss from "xss";
 
 interface Prop {
   name: string;
@@ -14,12 +15,24 @@ class CreateIngredientService {
       throw new Error("Information is missing, all of the fields are required.");
     }
 
-    let unitPriceCalculated = Number((totalPrice / totalUnit).toFixed(2));
+    if (totalUnit <= 0) {
+      throw new Error("totalUnit must be greater than zero");
+    }
+
+    if (totalPrice < 0) {
+      throw new Error("totalPrice cannot be negative");
+    }
+
+    
+    const safeName = xss(name);
+    const safeUnitConversion = xss(unitConversion);
+
+    const unitPriceCalculated = Number((totalPrice / totalUnit).toFixed(2));
 
     const ingredient = await prismaClient.ingredient.create({
       data: {
-        name,
-        unitConversion,
+        name: safeName,
+        unitConversion: safeUnitConversion,
         unitPrice: unitPriceCalculated,
         totalUnit,
         totalPrice,

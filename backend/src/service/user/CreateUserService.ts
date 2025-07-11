@@ -1,6 +1,6 @@
 import prismaClient from "../../../prisma/index";
 import { hash } from "bcryptjs";
-
+import xss from "xss";
 interface Prop {
     name: string;
     email: string;
@@ -17,6 +17,8 @@ class CreateUserService {
       try {
         const hashPass = await hash(password, 10);
 
+           const safeName = xss(name);
+            const safeEmail = xss(email);
        
         const user = await prismaClient.user.create({
             data: {
