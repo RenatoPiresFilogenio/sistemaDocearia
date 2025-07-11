@@ -2,10 +2,11 @@ import express, { Request, Response, NextFunction } from "express";
 import 'express-async-errors';
 import cors from 'cors';
 import { router } from "./routes";
-
+import { sanitizeMiddleware } from "./Middleware/sanitizeMiddleware";
 const app = express();
 
 app.use(express.json());
+app.use(sanitizeMiddleware);
 app.use(cors({
    origin: "https://sistema-docearia-81an.vercel.app"
 }));
